@@ -1,5 +1,5 @@
 # DNT-Beginner2Expert
-This is a guide to learn to program robots for the Dutch Nao Team. This is a change. Suitable for beginner to intermediate programmers. 
+This is a guide to learn to program robots for the Dutch Nao Team. Suitable for beginner to intermediate programmers. This is a change.
 
 To get started with the guide, take a look at the wiki located 
 [here](https://github.com/IntelligentRoboticsLab/DNT-Beginner2Expert/wiki) or in the menu above.
