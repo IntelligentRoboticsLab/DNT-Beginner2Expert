@@ -1,3 +1,10 @@
+'''
+kick.py: Perform the DNT kick.
+
+This file includes a function for kicking which you don't need to modify.
+You will use this function in the computer vision assignment.
+'''
+
 def kick(motion_proxy, side=0):
     '''
     Perform the DNT kick.
