@@ -1,16 +1,30 @@
 #!/usr/bin/env python2
 
-import cv2
-import glob
-import numpy as np
-import os
+# Check if python is version 2.7
+import sys
+if sys.version_info.major != 2:
+    print("Please run with python2.7, not python3")
+    sys.exit(1)
 
-from naoqi import ALProxy
+# Import libraries that will likely be used
+try:
+    import cv2
+    import glob
+    import numpy as np
+    import os
+    from naoqi import ALProxy
 
+except ImportError:
+    print("Error when importing libraries. Please run the install_test.py script in the computer_vision folder.")
+    sys.exit(1)
 
 # Robot name as shown on its head followed by .local
 IP = "EVE.local"
 PORT = 9559
+
+if IP == "EVE.local":
+    print("Please change the IP address in the code to your robot's IP address.")
+    sys.exit(1)
 
 
 # For this part of the assignment you will have three ways of testing your code.
@@ -136,8 +150,6 @@ def main():
     # Depending on the camera type (folder, webcam, robot)
     # Loop over the images, detect the ball and show the results
     print("Good luck")
-
-
 
 if __name__ == "__main__":
     main()
