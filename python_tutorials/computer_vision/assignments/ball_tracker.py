@@ -17,7 +17,7 @@ PORT = 9559
 # Tracking method: 0: head, 1: walk to ball, 2: kick ball
 TRACKING_METHOD = 0
 
-
+np.append
 def start_proxies():
     '''
     Start the motion, posture and memory proxy and let the robot stand up.

@@ -13,7 +13,7 @@ IP = "EVE.local"
 PORT = 9559
 
 
-# For this assignment you will have three ways of testing your code.
+# For this part of the assignment you will have three ways of testing your code.
 # 1. Test your code on the images in the folder "imgs".
 # 2. Test your code on the webcam.
 # 3. Test your code on the robot.
