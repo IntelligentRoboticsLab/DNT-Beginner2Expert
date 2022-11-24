@@ -1,23 +1,41 @@
 #!/usr/bin/env python2
 
-import cv2
-import itertools
-import numpy as np
+# Check if python is version 2.7
+import sys
+if sys.version_info.major != 2:
+    print("Please run with python2.7, not python3")
+    sys.exit(1)
 
-from naoqi import ALProxy
+# Import libraries that will likely be used
+try:
+    import cv2
+    import itertools
+    import numpy as np
+
+    from naoqi import ALProxy
+
+except ImportError:
+    print("Error when importing libraries. Please run the install_test.py script in the computer_vision folder.")
+    sys.exit(1)
+
+# Import self written functions from orange_ball.py
 
 from orange_ball import create_video_connection, get_img_from_robot, detect_orange_ball
 
 from kick import kick
 
 # Robot name as shown on its head followed by .local
+# TODO: Change this to your robots name when testing on the robot
 IP = "EVE.local"
 PORT = 9559
+
+if IP == "EVE.local":
+    print("Please change the IP variable in the code to your robots name.")
+    sys.exit(1)
 
 # Tracking method: 0: head, 1: walk to ball, 2: kick ball
 TRACKING_METHOD = 0
 
-np.append
 def start_proxies():
     '''
     Start the motion, posture and memory proxy and let the robot stand up.
@@ -34,7 +52,7 @@ def track_ball_with_head(motion_proxy, x, y, width, height):
     y: y position of the centre of the ball in the image.
     width: width of the image.
     height: height of the image.
-    http://doc.aldebaran.com/2-1/naoqi/motion/control-joint-api.html#ALMotionProxy::changeAngles__AL::ALValueCR.AL::ALValueCR.floatCR
+    http://doc.aldebaran.com/2-8/naoqi/motion/control-joint-api.html#ALMotionProxy::changeAngles__AL::ALValueCR.AL::ALValueCR.floatCR
     '''
     # Move head left or right depending on the x position of the ball (HeadYaw)
     # Move head up or down depending on the y position of the ball (HeadPitch)
@@ -44,7 +62,7 @@ def track_ball_with_head(motion_proxy, x, y, width, height):
 def reset_head_to_centre(motion_proxy):
     '''
     Reset the head angles to zero.
-    http://doc.aldebaran.com/2-1/family/robots/joints_robot.html
+    http://doc.aldebaran.com/2-8/family/nao_technical/joints_naov6.html
     '''
     motion_proxy.setAngles("HeadYaw", 0, 0.1)
     motion_proxy.setAngles("HeadPitch", 0, 0.1)
@@ -58,7 +76,7 @@ def move_to_ball(motion_proxy, x, y, width, height):
     y: y position of the centre of the ball in the image.
     width: width of the image.
     height: height of the image.
-    http://doc.aldebaran.com/2-1/naoqi/motion/control-walk-api.html#ALMotionProxy::moveToward__floatCR.floatCR.floatCR
+    http://doc.aldebaran.com/2-8/naoqi/motion/control-walk-api.html#ALMotionProxy::moveToward__floatCR.floatCR.floatCR
     '''
     # Turn towards the ball if not in the centre of the image
     # Walk towards the ball (moveToward)
