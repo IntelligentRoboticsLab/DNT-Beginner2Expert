@@ -15,3 +15,10 @@ try:
     print("naoqi installed correctly")
 except ImportError:
     print("naoqi not installed")
+
+try:
+    import numpy
+    print("numpy installed correctly")
+except ImportError:
+    print("numpy not installed")
+    
