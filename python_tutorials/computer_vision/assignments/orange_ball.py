@@ -22,7 +22,7 @@ except ImportError:
 IP = "EVE.local"
 PORT = 9559
 
-if IP == "EVE.local":
+if IP == "EVE.local" or IP == "NAO.local" or IP == "":
     print("Please change the IP address in the code to your robot's IP address.")
     sys.exit(1)
 
@@ -42,7 +42,7 @@ CAMERA_TYPE = 0
 def read_imgs(img_dir):
     '''
     Read images from the given folder and return them in a list.
-    https://www.quora.com/How-can-I-read-multiple-images-in-Python-presented-in-a-folder
+    HINT: https://www.quora.com/How-can-I-read-multiple-images-in-Python-presented-in-a-folder
 
     Input:      path to the folder containing the images
     Output:     list of images
@@ -54,7 +54,7 @@ def read_imgs(img_dir):
 def mask_img(img):
     '''
     Create a binary image in which orange is white and the rest is black.
-    https://www.pyimagesearch.com/2014/08/04/opencv-python-color-detection/
+    HINT: https://www.pyimagesearch.com/2014/08/04/opencv-python-color-detection/
 
     Input:      image in RGB
     Output:     binary image
@@ -67,7 +67,7 @@ def detect_circles(img):
     '''
     Detect circles in a binary image.
     returns the centre coordinates and the radius of the ball in the image.
-    https://www.pyimagesearch.com/2014/07/21/detecting-circles-images-using-opencv-hough-circles/
+    HINT: https://www.pyimagesearch.com/2014/07/21/detecting-circles-images-using-opencv-hough-circles/
 
     Input:      binary image
     Output:     centre coordinates and radius of the ball (x, y, r)
@@ -94,7 +94,7 @@ def detect_orange_ball(img):
 def start_webcam():
     '''
     Start the webcam and return the capture device.
-    https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_gui/py_video_display/py_video_display.html
+    HINT: https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_gui/py_video_display/py_video_display.html
     '''
     pass
     return cap
@@ -103,7 +103,7 @@ def start_webcam():
 def get_img_from_webcam(cap):
     '''
     Get a frame from the webcam and return it.
-    https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_gui/py_video_display/py_video_display.html
+    HINT: https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_gui/py_video_display/py_video_display.html
     '''
     pass
     return frame
@@ -112,7 +112,7 @@ def get_img_from_webcam(cap):
 def close_webcam(cap):
     '''
     Stop the connection with the webcam.
-    https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_gui/py_video_display/py_video_display.html
+    HINT: https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_gui/py_video_display/py_video_display.html
     '''
     pass
 
@@ -121,7 +121,7 @@ def create_video_connection(ip=None, port=None, camera=0):
     '''
     Create a connection with the robot and start a camera proxy.
     returns the video device and the capture device.
-    https://gist.github.com/takamin/990aa0133919aa58944d
+    HINT: https://gist.github.com/takamin/990aa0133919aa58944d
     '''
     if ip == None: ip = IP
     if port == None: port = PORT
@@ -132,7 +132,7 @@ def create_video_connection(ip=None, port=None, camera=0):
 def get_img_from_robot(video_device, capture_device):
     '''
     Get a frame from the robot and return it as numpy array.
-    https://gist.github.com/takamin/990aa0133919aa58944d
+    HINT: https://gist.github.com/takamin/990aa0133919aa58944d
     '''
     # Create image
     pass
