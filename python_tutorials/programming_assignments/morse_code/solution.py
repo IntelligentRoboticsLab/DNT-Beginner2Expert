@@ -3,6 +3,10 @@ from pathlib import Path
 
 
 class Morse():
+    """
+    This class contains the encoding table and functionality to encrypt and
+    decrypt morse.
+    """
     enc_table = {
         "A": '.-',
         "B": '-...',
@@ -55,6 +59,7 @@ class Morse():
 
 
     def decrypt(input_string):
+        """ This function decrypts a given input string using morse. """
         if not input_string:
             return ""
 
@@ -62,6 +67,7 @@ class Morse():
 
 
     def encrypt(input_string):
+        """ This function encrypts a given input string using morse. """
         if not input_string:
             return ""
 
@@ -69,14 +75,17 @@ class Morse():
 
 
 def read_file(path_to_file):
-    return path_to_file.read_text().replace("\n", "")
+    """ Reads the content from a file and replaces newlines with spaces. """
+    return path_to_file.read_text().replace("\n", " ")
 
 
 def write_to_file(path_to_file, text):
+    """ Writes text to a file. """
     path_to_file.write_text(text)
 
 
 def parse_arguments():
+    """ Parses user CLI arguments. """
     parser = argparse.ArgumentParser(
         description="decrypts and encrypts morse code"
     )
@@ -101,6 +110,7 @@ def parse_arguments():
 
 
 def run():
+    """ Entry point. """
     args = parse_arguments()
     file_contents = read_file(args.src)
 
@@ -114,4 +124,3 @@ def run():
 
 if __name__ == "__main__":
     run()
-
